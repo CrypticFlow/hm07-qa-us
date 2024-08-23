@@ -1,12 +1,32 @@
 // eslint-disable-next-line no-undef
 const config = require('../config');
 
-test('', async () => {
+let response;
+let data;
+
+test('test returns a status of 200', async () => {
     try {
-		const response = await fetch(`${config.API_URL}/your/endpoint`, {
+		response = await fetch(`${config.API_URL}/api/v1/kits/1`, {
 			method: 'DELETE',
 		});
 	} catch (error) {
 		console.error(error);
 	}
+});
+
+test('should return ok: true in the response body for DELETE api/v1/kits/1', async () => {
+    try {
+        response = await fetch(`${config.API_URL}/api/v1/kits/1`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        data = await response.json();
+    } catch (error) {
+        console.error(error);
+    }
+	console.log(data);
+	expect(data).toBeDefined();
+	expect(data.ok).toBe(true);
 });
