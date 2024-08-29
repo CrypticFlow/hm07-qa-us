@@ -30,7 +30,6 @@ test('should return a list of products for GET /api/v1/warehouses', async () => 
     } catch (error) {
         console.error(error);
     }
-	console.log(data);
 	expect(data).toBeDefined();
     expect(Array.isArray(data)).toBe(true);
     expect(data.length).toBeGreaterThan(0);

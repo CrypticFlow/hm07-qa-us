@@ -12,6 +12,7 @@ test('test returns a status of 200', async () => {
 	} catch (error) {
 		console.error(error);
 	}
+    expect(response.status).toBe(200);
 });
 
 test('should return ok: true in the response body for DELETE api/v1/kits/1', async () => {
@@ -26,7 +27,6 @@ test('should return ok: true in the response body for DELETE api/v1/kits/1', asy
     } catch (error) {
         console.error(error);
     }
-	console.log(data);
 	expect(data).toBeDefined();
 	expect(data.ok).toBe(true);
 });

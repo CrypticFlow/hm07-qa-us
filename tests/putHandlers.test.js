@@ -28,14 +28,14 @@ let data;
 
 test('test returns a status of 200', async () => {
     try {
-		response = await fetch(`${config.API_URL}/api/v1/kits/1`, { // async await function to wait for data to be passed then parsed
+		response = await fetch(`${config.API_URL}/api/v1/kits/1`, {
 			method: 'PUT',
 			headers: {
 			'Content-Type': 'application/json'
 			}, 
-			body: JSON.stringify(updateList) //json object calling the variable with the updated product
+			body: JSON.stringify(updateList)
 		});
-	} catch (error) { // catch errors if they are not a 200 passing code 
+	} catch (error) { 
 		console.error(error);
 	}
 	expect(response.status).toBe(200);
@@ -54,7 +54,6 @@ test('should return ok: true in the response body', async () => {
     } catch (error) {
         console.error(error);
     }
-	console.log(data); 
 	expect(data.productsList).toBeDefined();
     expect(data.productsList.ok).toBe(true);
 }); 

@@ -44,7 +44,6 @@ test('should return a list of products in the kit', async () => {
     } catch (error) {
         console.error(error);
     }
-	console.log(data); 
 	expect(data).toBeDefined();
     expect(Array.isArray(data.productsList)).toBe(true);
     expect(data.productsList.length).toBeGreaterThan(0); 
